@@ -1,0 +1,67 @@
+Hello World!
+
+git指令：
+
+创建新仓库：
+	git init	在指定文件夹下，创建新的 git 仓库。
+	
+检出仓库：
+	git clone /path/to/repository	创建一个本地仓库的克隆版本；
+	git clone username@host:/path/to/repository 创建一个远端服务器上的仓库的克隆版本；
+
+添加与提交：
+	
+	git add <filename> 
+	git add *		把它们添加到缓存区Index
+
+	git commit -m "代码提交信息"	提交到了 HEAD，但是还没到你的远端仓库；
+
+推送改动：
+	git push origin master 		将本地仓库的 HEAD 中的改动提交到远端仓库（可以把 master 换成你想要推送的任何分支）；
+	
+	git remote add origin <server> 	还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器；（git remote add origin https://github.com/BJCHAN/git_test.git）
+
+分支（分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。）：
+	git checkout -b feature_x	创建一个叫做“feature_x”的分支，并切换过去；
+	git checkout master		切换回主分支；
+	git branch -d feature_x 	把新建的分支feature_x 删掉；
+	git push origin <branch>	将分支推送到远端仓库（不推送，该分支就是 不为他人所见的）；
+
+更新与合并：
+	git pull	更新你的本地仓库至最新改动（以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动）；
+	git merge <branch>	合并其他分支到你的当前分支；
+	
+	git add <filename>	解决冲突（conflicts），将它们标记为合并成功；
+	git diff <source_branch> <target_branch>	查看合并改动之前的差异；
+
+标签：
+	git tag 1.0.0 1b2e1d63ff	创建标签（在软件发布时），1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符；
+	git log		获取提交 ID；
+	
+替换本地改动：
+	git checkout -- <filename>	替换掉本地改动；
+	git fetch origin
+	git reset --hard origin/master	丢弃你所有的本地改动与提交，到服务器上获取最新的版本并将本地主分支指向到它；
+
+
+	git status 查看仓库当前的状态;
+	
+
+------------------------------------
+	内建的图形化 git：	gitk
+	彩色的 git 输出： 	git config color.ui true
+	显示历史记录时，只显示一行注释信息：	git config format.pretty oneline
+	交互地添加文件至缓存区：	git add -i
+
+
+==================远程仓库==========================
+1.创建SSH Key。-$ ssh-keygen -t rsa -C "youremail@example.com"
+
+
+
+
+
+
+
+
+
